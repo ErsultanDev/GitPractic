@@ -1,6 +1,6 @@
 "use strict";
 
-const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
 const personalMovieDB = {
   count: numberOfFilms,
@@ -10,13 +10,28 @@ const personalMovieDB = {
   privat: false,
 };
 
-const a = prompt("Один из последних просмторенных фильмов?", ""),
-  b = prompt("На скольоко оцените его?", ""),
-  c = prompt("Один из последних просмторенных фильмов?", ""),
-  d = prompt("На сколько оцените его?", "");
+for (let i = 0; i < 2; i++) {
+  const a = prompt("Один из последних просмторенных фильмов?", ""),
+    b = prompt("На скольоко оцените его?", "");
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+  if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+    personalMovieDB.movies[a] = b;
+    console.log("Done");
+  } else {
+    console.log("error");
+    i--;
+  }
+}
+
+if (personalMovieDB.count < 10) {
+  console.log("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+  console.log("Вы классический зритель");
+} else if (personalMovieDB.count >= 30) {
+  console.log("Вы киноман");
+} else {
+  console.log("Произошла ошибка");
+}
 
 const num = 50;
 switch (num) {
@@ -64,13 +79,34 @@ function secondTask() {
 
 secondTask();
 
-// // Место для третьей задачи
-// function thirdTask() {
-//   // Пишем решение вот тут
-//   for (let i = 10; i % 0; i++) {
-//     console.log(i);
-//   }
-// }
+function showFirstMessage() {
+  console.log("Hello World!");
+  let num = 20;
+  console.log(num);
+}
 
-// thirdTask();
+showFirstMessage();
 
+function calc(a, b) {
+  return a + b;
+}
+
+console.log(calc(23, 1));
+console.log(calc(10, 1));
+console.log(calc(3, 1));
+
+function ret() {
+  let num = 50;
+
+  return num;
+}
+const anotherNum = ret();
+
+console.log(anotherNum);
+
+const usdCurr = 28;
+
+function convert(amount, curr) {
+  console.log(28 * amount);
+}
+convert(500);
