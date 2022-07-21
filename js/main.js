@@ -110,3 +110,5 @@ function convert(amount, curr) {
   console.log(28 * amount);
 }
 convert(500);
+
+
